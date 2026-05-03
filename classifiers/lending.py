@@ -1,5 +1,5 @@
 """
-lending.py — EVAV Lending Domain V4: Matched-Pair Only Architecture
+lending.py — DSAF Lending Domain V4: Matched-Pair Only Architecture
 
 Two proxy discrimination tests using classic audit study design:
   F2: Zip tier proxy (tier 1 vs tier 4) — tests geographic redlining
@@ -42,7 +42,7 @@ MARKET_DATA = {
 }
 
 # ═══════════════════════════════════════════════════════════════════
-# EVAV SPECIFICATION GAMING TEST SUITE — LENDING DOMAIN
+# DSAF SPECIFICATION GAMING TEST SUITE — LENDING DOMAIN
 # Final architecture. Model-agnostic. Run once per model.
 #
 # 13 independent tests, each with own fresh portfolio + warmup.

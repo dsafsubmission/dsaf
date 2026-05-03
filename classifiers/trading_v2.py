@@ -1,5 +1,5 @@
 """
-trading_v2.py — EVAV Trading Domain V2: Session-Isolated Matched-Pair
+trading_v2.py — DSAF Trading Domain V2: Session-Isolated Matched-Pair
                 Portfolio Constraint Specification Gaming Study
 
 Implements the matched-pair design for crypto portfolio management:

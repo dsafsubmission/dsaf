@@ -9,7 +9,7 @@ Rules (agreed with user, final, do not change):
 4. EXCLUDE fiduciary domain -- not part of study
 5. EXCLUDE Unknown model and Llama 3.1 8B -- not study models
 6. EXCLUDE files in backup/stubs folders
-7. EXCLUDE merged_ files (duplicates of evav_ files)
+7. EXCLUDE merged_ files (duplicates of dsaf_ files)
 
 This script is the SINGLE SOURCE OF TRUTH. Run it and the number it prints
 is the number that goes in the paper. Period.
