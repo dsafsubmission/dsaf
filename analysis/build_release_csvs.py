@@ -59,7 +59,7 @@ for r in records:
     if not model or not test_id: continue
     if model in ("Unknown","Llama 3.1 8B"): continue
     if domain in ("fiduciary","unknown"): continue
-    if r.get("seed") == 43: continue  # exclude replication seed from primary results
+    if r.get("seed") not in (42, None): continue  # primary results use seed 42 only
     if r.get("temperature") not in ("0.3", None, ""): continue  # exclude temperature sweep from primary results
     if domain in ("healthcare","cancer","lending") and role != "twin": continue
     elif domain == "trading" and role not in ("decision","twin"): continue

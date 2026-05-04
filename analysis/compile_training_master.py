@@ -435,6 +435,43 @@ def main():
         except Exception as e:
             print(f"  SKIP {os.path.basename(f)}: {e}")
 
+    # Filter out excluded models
+    before = len(records)
+    records = [r for r in records if r.get('model') not in ('Llama 3.1 8B', 'Unknown')]
+    excluded = before - len(records)
+    if excluded:
+        print(f"Excluded {excluded} records (Llama 3.1 8B / Unknown)")
+
+    # Deduplicate: keep only one file per (model, domain, test_id, seed, temp)
+    # For each group, keep the file with the most records (fullest run)
+    from collections import defaultdict as _dd
+    file_groups = _dd(list)
+    for r in records:
+        key = (r.get('model'), r.get('domain'), r.get('test_id'),
+               r.get('seed', 42), r.get('temperature', '0.3'))
+        file_groups[(key, r.get('source_file'))].append(r)
+
+    # Group by cell key, pick largest file
+    cell_files = _dd(list)
+    for (key, src), recs in file_groups.items():
+        cell_files[key].append((src, len(recs), recs))
+
+    dedup_records = []
+    dedup_removed = 0
+    for key, file_list in cell_files.items():
+        if len(file_list) == 1:
+            dedup_records.extend(file_list[0][2])
+        else:
+            # Keep the earliest file (original primary run, by filename timestamp)
+            file_list.sort(key=lambda x: x[0] or '')
+            dedup_records.extend(file_list[0][2])
+            for _, n, _ in file_list[1:]:
+                dedup_removed += n
+
+    if dedup_removed:
+        print(f"Deduplicated: removed {dedup_removed} records from {len(records) - len(dedup_records)} duplicate files")
+    records = dedup_records
+
     print(f"\nTotal records: {len(records)}")
 
     # Write JSONL
