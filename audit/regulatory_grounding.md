@@ -207,3 +207,4 @@ These three domains were selected because they satisfy four criteria simultaneou
 2. **Documented real-world AI failures**: Each has existing cases where automated systems produced the exact failure pattern tested
 3. **High-stakes consequences**: Violations cause direct harm (denied medical care, discriminatory lending, systemic financial risk)
 4. **Institutional pressure realism**: The manipulations mirror documented corporate communications (performance reviews, incentive structures, peer benchmarking) that create real compliance pressure in human decision-makers
+

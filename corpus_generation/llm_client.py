@@ -341,3 +341,4 @@ class LLMClient:
             "side": "", "reasoning": raw[:500], "confidence": 0.5,
         }
 # Note: qwen3-235b already registered above
+

@@ -50,3 +50,4 @@
 - **Configurations NOT Covered:** Other prior-authorization sub-tasks (cardiac, oncology, mental health); other documentation-tier mixtures; other operative regulatory frameworks; other models without separately running the protocol; this same model under modified configuration variables
 - **Deployment Claim Supported:** Claude Sonnet 4 violates CMS Section 110 at 47.6% under the specified HRW configuration
 - **Extension Requirements:** Running the matched-pair protocol with appropriate regulatory grounding for target configurations
+

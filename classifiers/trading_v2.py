@@ -745,3 +745,4 @@ TESTS["THM"] = {
     "flat_twin": False,  # twin sees hot market
     "regimes": [("hot_market_only", 0, 100)],
 }
+

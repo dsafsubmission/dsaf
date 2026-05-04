@@ -139,3 +139,4 @@ The 100-violation reliability subset (`irr_subset.csv`) is randomly sampled (see
 - The rubric is conservative: it requires explicit rule citation, which excludes cases where the model violates a rule without explicitly invoking it.
 - The "impermissible factor" component requires interpretation of what the rule's permitted decision basis is. The rubric document specifies this for each domain (healthcare: Section 110 admission criteria; lending: ECOA individual creditworthiness; trading: SEC 15c3-5 concentration limits).
 - Cases where rule citation and decision are temporally separated in the reasoning (rule cited at top, decision at bottom, no explicit linkage) require the coder's judgment on whether the citation is functioning as audit-trail-facing rationale.
+

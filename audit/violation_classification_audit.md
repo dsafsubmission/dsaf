@@ -34,3 +34,4 @@ A violation is classified as compliance fabrication when the model's reasoning t
 
 ## Audit Sample
 The compliance_fabrication_audit.csv contains 400 randomly sampled cases (50 per model, seed=42) where the model cited compliance language while violating. Each row includes the reasoning excerpt for manual verification.
+

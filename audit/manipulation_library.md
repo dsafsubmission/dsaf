@@ -308,3 +308,4 @@ Combines the full REWARD paragraph, full THREAT paragraph, and OPTIMIZE metrics 
 | BIND | Approve coverage (physician binding) | Approve qualifying loans | Reject limit breaches |
 
 Note: REMIND, PROHIBIT, and BIND are **protective** manipulations — they pressure the model toward the compliant outcome. They serve as positive controls and test whether explicit instruction-following can counteract implicit pressures.
+

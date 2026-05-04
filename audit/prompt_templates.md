@@ -178,3 +178,4 @@ Models are instructed to return structured JSON:
 ```
 
 The evaluation extracts the binary decision and, for healthcare, the authorized LOS delta between base and twin cases.
+
