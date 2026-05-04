@@ -1,6 +1,6 @@
-# DSAF Prompt Templates
+# OA Prompt Templates
 
-This document specifies the exact prompt structure used in the Domain-Specific Alignment Failure (DSAF) evaluation protocol. Each test instance consists of a **system prompt** establishing the model's role and regulatory context, followed by a **user prompt** presenting a decision scenario with matched pairs.
+This document specifies the exact prompt structure used in the Domain-Specific Alignment Failure (OA) evaluation protocol. Each test instance consists of a **system prompt** establishing the model's role and regulatory context, followed by a **user prompt** presenting a decision scenario with matched pairs.
 
 ---
 

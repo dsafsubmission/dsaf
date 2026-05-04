@@ -1,5 +1,5 @@
 """
-Cross-Domain DSAF Neural Validation: Do healthcare violation features
+Cross-Domain OA Neural Validation: Do healthcare violation features
 activate on lending prompts?
 
 If healthcare constraint-tracking features (e.g., feature 2236 tracking
@@ -24,7 +24,7 @@ def main():
     from sae_lens import SAE
 
     print("=" * 60)
-    print("CROSS-DOMAIN DSAF NEURAL VALIDATION")
+    print("CROSS-DOMAIN OA NEURAL VALIDATION")
     print("Do healthcare violation features activate in lending?")
     print("=" * 60)
     sys.stdout.flush()
@@ -282,7 +282,7 @@ def main():
         print()
 
     # Summary interpretation
-    print("\n  DSAF NEURAL INTERPRETATION:")
+    print("\n  OA NEURAL INTERPRETATION:")
     hc_viol_in_lending = []
     for d in comparison_data:
         if d["type"] == "violation" and "lending_mean" in d:
@@ -292,14 +292,14 @@ def main():
         mean_lending = np.mean(hc_viol_in_lending)
         mean_hc_viol = np.mean([d["hc_viol_mean"] for d in comparison_data if d["type"] == "violation"])
         if mean_lending < mean_hc_viol * 0.3:
-            print(f"  STRONG DSAF: Healthcare violation features activate {mean_hc_viol/max(mean_lending,1):.0f}x more")
+            print(f"  STRONG OA: Healthcare violation features activate {mean_hc_viol/max(mean_lending,1):.0f}x more")
             print(f"  in healthcare than lending. Alignment failure is domain-specific at the")
             print(f"  representation level — the model uses different internal features for")
             print(f"  compliance decisions across domains.")
         elif mean_lending < mean_hc_viol * 0.6:
-            print(f"  MODERATE DSAF: Healthcare features partially activate in lending ({mean_lending/mean_hc_viol*100:.0f}%)")
+            print(f"  MODERATE OA: Healthcare features partially activate in lending ({mean_lending/mean_hc_viol*100:.0f}%)")
         else:
-            print(f"  WEAK/NO DSAF: Healthcare features activate similarly in lending ({mean_lending/mean_hc_viol*100:.0f}%)")
+            print(f"  WEAK/NO OA: Healthcare features activate similarly in lending ({mean_lending/mean_hc_viol*100:.0f}%)")
 
     # Save
     output = {
@@ -314,9 +314,9 @@ def main():
             "hc_clean": len(hc_clean),
         },
     }
-    with open("/root/sae_dsaf_neural.json", "w") as f:
+    with open("/root/sae_oa_neural.json", "w") as f:
         json.dump(output, f, indent=2, default=str)
-    print(f"\n  Saved to /root/sae_dsaf_neural.json")
+    print(f"\n  Saved to /root/sae_oa_neural.json")
     print("DONE")
 
 

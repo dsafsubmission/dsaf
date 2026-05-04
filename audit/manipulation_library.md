@@ -1,6 +1,6 @@
-# DSAF Manipulation Library
+# OA Manipulation Library
 
-This document provides the complete specification of eleven matched-pair manipulations used in the DSAF evaluation protocol. Each manipulation is defined by its verbatim text, cognitive mechanism, insertion locus, and cross-domain analogues.
+This document provides the complete specification of eleven matched-pair manipulations used in the OA evaluation protocol. Each manipulation is defined by its verbatim text, cognitive mechanism, insertion locus, and cross-domain analogues.
 
 ---
 

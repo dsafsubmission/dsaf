@@ -1,6 +1,6 @@
 # Compliance Fabrication Coding Rubric
 
-This document defines the coding criteria used to classify model outputs as exhibiting compliance fabrication in the DSAF corpus. Both the single-author manual audit (`compliance_fabrication_audit.csv`, N=400) and the second-coder reliability subset (`irr_subset.csv`, N=100) apply this rubric.
+This document defines the coding criteria used to classify model outputs as exhibiting compliance fabrication in the OA corpus. Both the single-author manual audit (`compliance_fabrication_audit.csv`, N=400) and the second-coder reliability subset (`irr_subset.csv`, N=100) apply this rubric.
 
 ## Phenomenon
 

@@ -1,12 +1,12 @@
 """
-Compile the DSAF Master Training Dataset.
+Compile the OA Master Training Dataset.
 
 Takes ALL raw decision files, applies canonical labeling rules,
 enriches with metadata (failure mode, precursor context, intervention
 effectiveness), and outputs one unified JSONL file that is everything
-needed to train a model from zero to being DSAF.
+needed to train a model from zero to being OA.
 
-Output: DSAF_Knowledge/training_manifest/MASTER_TRAINING_DATA.jsonl
+Output: OA_Knowledge/training_manifest/MASTER_TRAINING_DATA.jsonl
 """
 
 import csv
@@ -16,7 +16,7 @@ import os
 import re
 from collections import defaultdict
 
-OUTPUT_DIR = "DSAF_Knowledge/training_manifest"
+OUTPUT_DIR = "OA_Knowledge/training_manifest"
 
 # ─────────────────────────────────────────────────────────
 # VIOLATION LOGIC (exact copy from healthcare.py:1131)
@@ -397,15 +397,15 @@ def main():
     # Healthcare + Cancer (same format)
     print("Processing healthcare + cancer files...")
     hc_files = sorted(set(
-        glob.glob('results/dsaf_*_healthcare_decisions.csv') +
+        glob.glob('results/oa_*_healthcare_decisions.csv') +
         glob.glob('results/gemini25pro_*_healthcare_decisions.csv') +
-        glob.glob('results/gemini25pro_dsaf_*_healthcare_decisions.csv') +
+        glob.glob('results/gemini25pro_oa_*_healthcare_decisions.csv') +
         # opus excluded — capability-scaling probe only, not in released corpus
         #glob.glob('results/opus_hrw_decisions.csv') +
-        glob.glob('results/dsaf_*_cancer_decisions.csv') +
+        glob.glob('results/oa_*_cancer_decisions.csv') +
         glob.glob('results/gemini25pro_*_cancer_decisions.csv')
         # fiduciary excluded permanently — not part of study
-        # merged_* excluded — they duplicate individual dsaf_ files
+        # merged_* excluded — they duplicate individual oa_ files
     ))
     for i, f in enumerate(hc_files):
         try:
@@ -418,11 +418,11 @@ def main():
     # Lending
     print("Processing lending files...")
     lending_files = sorted(set(
-        glob.glob('results/dsaf_*_lending_decisions.csv') +
+        glob.glob('results/oa_*_lending_decisions.csv') +
         glob.glob('results/gemini25pro_*_lending_decisions.csv') +
-        glob.glob('results/gemini25pro_dsaf_*_lending_decisions.csv') +
-        glob.glob('results/llama_dsaf_*_lending_decisions.csv') +
-        glob.glob('results/qwen_dsaf_*_lending_decisions.csv') +
+        glob.glob('results/gemini25pro_oa_*_lending_decisions.csv') +
+        glob.glob('results/llama_oa_*_lending_decisions.csv') +
+        glob.glob('results/qwen_oa_*_lending_decisions.csv') +
         [] # opus excluded — capability-scaling probe, not in released corpus
         # merged_* excluded
     ))
@@ -435,7 +435,7 @@ def main():
     # Trading
     print("Processing trading files...")
     trading_files = sorted(set(
-        glob.glob('results/dsaf_*_trading2_decisions.csv') +
+        glob.glob('results/oa_*_trading2_decisions.csv') +
         glob.glob('results/gemini25pro_*_trading2_decisions.csv') +
         [] # opus trading excluded
     ))

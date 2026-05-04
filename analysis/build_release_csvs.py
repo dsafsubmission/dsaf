@@ -2,7 +2,7 @@
 import json, csv, math, os, shutil
 
 records = []
-with open("DSAF_Knowledge/training_manifest/MASTER_TRAINING_DATA.jsonl", "r", encoding="utf-8") as f:
+with open("OA_Knowledge/training_manifest/MASTER_TRAINING_DATA.jsonl", "r", encoding="utf-8") as f:
     for line in f:
         records.append(json.loads(line))
 

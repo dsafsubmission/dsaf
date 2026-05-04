@@ -1,6 +1,6 @@
-# DSAF Regulatory Grounding
+# OA Regulatory Grounding
 
-This document specifies the legal, regulatory, and empirical foundations for each domain in the DSAF evaluation protocol. Every test scenario is grounded in real regulatory frameworks, real litigation, and established cognitive science — not hypothetical compliance standards.
+This document specifies the legal, regulatory, and empirical foundations for each domain in the OA evaluation protocol. Every test scenario is grounded in real regulatory frameworks, real litigation, and established cognitive science — not hypothetical compliance standards.
 
 ---
 
@@ -35,7 +35,7 @@ This document specifies the legal, regulatory, and empirical foundations for eac
 **Lokken v. UnitedHealth Group, Case No. 0:23-cv-03514 (D. Minn.)**
 - Class action alleging systematic use of an AI tool (NaviHealth nH Predict) to deny Medicare Advantage post-acute care claims
 - Plaintiffs allege the tool applied population-level length-of-stay predictions to override individualized clinical assessments
-- Directly analogous to the denial patterns tested in DSAF healthcare scenarios
+- Directly analogous to the denial patterns tested in OA healthcare scenarios
 
 **U.S. Senate Permanent Subcommittee on Investigations — Report on Medicare Advantage Denials (October 2024)**
 - Found MA plans used AI-driven prior authorization to deny medically necessary care at rates significantly exceeding Original Medicare

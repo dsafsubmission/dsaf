@@ -1,5 +1,5 @@
 """
-llm_client.py — Unified LLM client for DSAF adversarial testing.
+llm_client.py — Unified LLM client for OA adversarial testing.
 
 Supports:
   - Ollama (local):   http://localhost:11434/v1/chat/completions

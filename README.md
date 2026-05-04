@@ -1,6 +1,6 @@
-# DSAF: Domain-Specific Alignment Failure
+# OA: Operational Alignment
 
-Code and audit materials for the DSAF corpus — 209,072 matched-pair decisions from 8 frontier LLMs across 3 deployment-realistic testbeds.
+Code and audit materials for the OA corpus — 209,072 matched-pair decisions from 8 frontier LLMs across 3 deployment-realistic testbeds.
 
 ## Structure
 
@@ -12,7 +12,7 @@ Code and audit materials for the DSAF corpus — 209,072 matched-pair decisions 
 
 ## Dataset
 
-Full corpus on [HuggingFace](https://huggingface.co/datasets/dsafsubmission/DSAFSUBMISSION).
+Full corpus on [HuggingFace](https://huggingface.co/datasets/oasubmission/OASUBMISSION).
 
 ## License
 

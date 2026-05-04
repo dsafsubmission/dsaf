@@ -1,13 +1,13 @@
 """
-dsaf.py — DSAF Adversarial Testing Framework: main entry point.
+oa.py — OA Adversarial Testing Framework: main entry point.
 
 Usage examples:
-  python dsaf.py --model ollama/qwen2.5:14b --domain trading --test A
-  python dsaf.py --model ollama/qwen2.5:14b --domain trading --test all
-  python dsaf.py --model ollama/qwen2.5:14b --domain lending --test L1,F1
-  python dsaf.py --model ollama/qwen2.5:14b --domain all --test all
-  python dsaf.py --model deepseek/deepseek-v3 --domain trading --test all --api-key sk-...
-  python dsaf.py --model ollama/qwen2.5:14b --domain trading --test A --quick
+  python oa.py --model ollama/qwen2.5:14b --domain trading --test A
+  python oa.py --model ollama/qwen2.5:14b --domain trading --test all
+  python oa.py --model ollama/qwen2.5:14b --domain lending --test L1,F1
+  python oa.py --model ollama/qwen2.5:14b --domain all --test all
+  python oa.py --model deepseek/deepseek-v3 --domain trading --test all --api-key sk-...
+  python oa.py --model ollama/qwen2.5:14b --domain trading --test A --quick
 """
 
 import io
@@ -41,7 +41,7 @@ QUICK_DECISIONS = 20
 
 def main():
     parser = argparse.ArgumentParser(
-        description="DSAF Adversarial Testing Framework",
+        description="OA Adversarial Testing Framework",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
@@ -178,7 +178,7 @@ def main():
         "domains":     domains,
         "tests":       {d: resolve_tests(d) for d in domains},
     }
-    meta_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_meta.json")
+    meta_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_meta.json")
     with open(meta_path, "w") as f:
         json.dump(meta, f, indent=2)
     print(f"\nRun ID:     {run_id}")
@@ -205,8 +205,8 @@ def main():
                 regime_cache[rname] = trading.load_regime_ticks(rname)
                 print(f"  {rname}: {len(regime_cache[rname])} ticks")
 
-            dec_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_trading_decisions.csv")
-            viol_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_trading_violations.csv")
+            dec_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_trading_decisions.csv")
+            viol_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_trading_violations.csv")
             violations_log = []
 
             with open(dec_path, "w", newline="", encoding="utf-8") as dec_f:
@@ -235,9 +235,9 @@ def main():
         test_ids = resolve_tests("trading2")
         if test_ids:
             tid_suffix = "_".join(test_ids)
-            dec_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_trading2_decisions.csv")
-            viol_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_trading2_violations.csv")
-            mcnm_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_trading2_mcnemar.csv")
+            dec_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_trading2_decisions.csv")
+            viol_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_trading2_violations.csv")
+            mcnm_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_trading2_mcnemar.csv")
             violations_log = []
             mcnemar_log = []
 
@@ -275,9 +275,9 @@ def main():
             # Include test IDs in filename to prevent parallel processes from
             # colliding on the same file when launched within the same second.
             tid_suffix = "_".join(test_ids)
-            dec_path   = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_lending_decisions.csv")
-            viol_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_lending_violations.csv")
-            mcnm_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_lending_mcnemar.csv")
+            dec_path   = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_lending_decisions.csv")
+            viol_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_lending_violations.csv")
+            mcnm_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_lending_mcnemar.csv")
             violations_log = []
             mcnemar_log    = []
 
@@ -315,9 +315,9 @@ def main():
         test_ids = resolve_tests("healthcare")
         if test_ids:
             tid_suffix = "_".join(test_ids)
-            dec_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_healthcare_decisions.csv")
-            viol_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_healthcare_violations.csv")
-            mcnm_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_healthcare_mcnemar.csv")
+            dec_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_healthcare_decisions.csv")
+            viol_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_healthcare_violations.csv")
+            mcnm_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_healthcare_mcnemar.csv")
             violations_log = []
             mcnemar_log = []
 
@@ -353,9 +353,9 @@ def main():
         test_ids = resolve_tests("cancer")
         if test_ids:
             tid_suffix = "_".join(test_ids)
-            dec_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_cancer_decisions.csv")
-            viol_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_cancer_violations.csv")
-            mcnm_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_cancer_mcnemar.csv")
+            dec_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_cancer_decisions.csv")
+            viol_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_cancer_violations.csv")
+            mcnm_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_cancer_mcnemar.csv")
             violations_log = []
             mcnemar_log = []
 
@@ -391,9 +391,9 @@ def main():
         test_ids = resolve_tests("fiduciary")
         if test_ids:
             tid_suffix = "_".join(test_ids)
-            dec_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_fiduciary_decisions.csv")
-            viol_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_fiduciary_violations.csv")
-            mcnm_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_fiduciary_mcnemar.csv")
+            dec_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_fiduciary_decisions.csv")
+            viol_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_fiduciary_violations.csv")
+            mcnm_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_fiduciary_mcnemar.csv")
             violations_log = []
             mcnemar_log = []
 
@@ -429,9 +429,9 @@ def main():
         test_ids = resolve_tests("pension")
         if test_ids:
             tid_suffix = "_".join(test_ids)
-            dec_path  = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_pension_decisions.csv")
-            viol_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_pension_violations.csv")
-            mcnm_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_{tid_suffix}_pension_mcnemar.csv")
+            dec_path  = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_pension_decisions.csv")
+            viol_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_pension_violations.csv")
+            mcnm_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_{tid_suffix}_pension_mcnemar.csv")
             violations_log = []
             mcnemar_log = []
 
@@ -471,7 +471,7 @@ def main():
                 t["regimes"] = t.pop("_orig_regimes")
 
     # ── Summary ───────────────────────────────────────────────────
-    stats_path = os.path.join(RESULTS_DIR, f"dsaf_{model_safe}_{ts}_stats.json")
+    stats_path = os.path.join(RESULTS_DIR, f"oa_{model_safe}_{ts}_stats.json")
     with open(stats_path, "w") as f:
         json.dump(all_stats, f, indent=2)
 

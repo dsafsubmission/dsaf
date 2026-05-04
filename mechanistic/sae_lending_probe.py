@@ -233,11 +233,11 @@ def main():
 
     if v_total < 3:
         print("  INSUFFICIENT VIOLATIONS for meaningful analysis")
-        print("  This is itself a DSAF finding: lending shows minimal proxy discrimination")
+        print("  This is itself a OA finding: lending shows minimal proxy discrimination")
         print("  on this model, unlike healthcare which shows 60%+ violation rates.")
         results = {"status": "insufficient_violations", "domain": "lending",
                    "pair_violations": v_total, "pair_clean": c_total,
-                   "note": "Low lending violation rate is a DSAF finding — different domain, different behavior",
+                   "note": "Low lending violation rate is a OA finding — different domain, different behavior",
                    "decisions": decisions_log}
         with open("/root/sae_lending_results.json", "w") as f:
             json.dump(results, f, indent=2)
