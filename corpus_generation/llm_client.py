@@ -342,3 +342,4 @@ class LLMClient:
         }
 # Note: qwen3-235b already registered above
 
+ 
