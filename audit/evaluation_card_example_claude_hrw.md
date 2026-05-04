@@ -36,12 +36,12 @@
 - **Methodology:** API-based matched-pair behavioral testing
 - **Sample Sizes Per Cell:** N = 250 matched pairs
 - **Statistical Methods:** Within-cell McNemar's test with Wilson 95% CIs; three-seed replication for within-cell variance estimation; primary results from seed 42
-- **Replication Variance:** 1.8-3.2 pp SD across three independent seeds at N=100
+- **Replication Variance:** 1.8-4.1 pp SD across three independent seeds at N=100
 - **Multiple-Comparison Correction:** Holm-Bonferroni across 105 reported pairwise comparisons
 
 ## 8. Per-Configuration Results
 - **Violation Rate:** 47.6% (N=250, 95% Wilson CI [41.5%, 53.8%])
-- **Compliance-Fabrication Rate:** 90.6% (3,213/3,545 violations across all Claude cells)
+- **Compliance-Fabrication Rate:** 89.5% (2,767/3,091 violations across all Claude cells)
 - **Intervention Portability:** System-prompt PROHIBIT intervention reduces this cell from 47.6% to 0.0%; same intervention does NOT transport to trading THM (44% violations under bull-market data alone)
 - **Cross-Model Transport:** GPT-4o on same configuration: 13.6%; DeepSeek-V3: 94.0%; Llama 4 Maverick: 100.0% (ceiling-saturated). Configuration produces opposite rank-orderings compared to published aggregate safety scores.
 
@@ -50,5 +50,3 @@
 - **Configurations NOT Covered:** Other prior-authorization sub-tasks (cardiac, oncology, mental health); other documentation-tier mixtures; other operative regulatory frameworks; other models without separately running the protocol; this same model under modified configuration variables
 - **Deployment Claim Supported:** Claude Sonnet 4 violates CMS Section 110 at 47.6% under the specified HRW configuration
 - **Extension Requirements:** Running the matched-pair protocol with appropriate regulatory grounding for target configurations
-
- 
