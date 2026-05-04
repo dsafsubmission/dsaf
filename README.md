@@ -1,6 +1,6 @@
 # DSAF: Domain-Specific Alignment Failure
 
-Code and audit materials for the DSAF corpus — 209,072 matched-pair decisions from 8 frontier LLMs across 3 regulated deployment domains.
+Code and audit materials for the DSAF corpus — 209,072 matched-pair decisions from 8 frontier LLMs across 3 deployment-realistic testbeds.
 
 ## Structure
 
